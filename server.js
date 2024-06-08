@@ -14,6 +14,12 @@ import tableRouter from './Routes/TableRouter.js'
 //===================config app===============================
 const app = express()
 
+
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true,
+}));
+
 app.get('/', async function (req, res) {
     res.statusCode(200).send('Welcomme')
 })
