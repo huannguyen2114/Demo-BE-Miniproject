@@ -32,6 +32,6 @@ app.use('/api/orders', orderRouter)
 app.use('/api/tables', tableRouter)
 
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT, "0.0.0.0", () => {
     console.log("Running at %d", process.env.PORT)
 })
