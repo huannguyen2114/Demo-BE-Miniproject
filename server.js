@@ -15,14 +15,11 @@ import tableRouter from './Routes/TableRouter.js'
 const app = express()
 
 
-app.use(cors({
-  origin: "http://localhost:3000",
-  credentials: true,
-}));
+app.use(cors());
 
 
 app.use('/', function (req, res) {
-    console.log("hello wolrd");
+    res.send("hello wolrd");
 })
 app.use(bodyParser.json({ limit: '200mb' }));
 app.use(bodyParser.urlencoded({ limit: '200mb', extended: true }));
