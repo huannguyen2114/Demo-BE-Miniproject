@@ -1,12 +1,14 @@
 import { Router } from "express";
 import {
     addNewUser,
-    login
+    login,
+    logout,
 } from "../Controllers/AuthorizationController.js";
 
-const router = Router()
+const router = Router();
 
-router.post("/login", login)
-router.post("/register", addNewUser)
+router.post("/login", login);
+router.post("/register", addNewUser);
+router.post("/logout", logout);
 
-export default router
+export default router;

@@ -1,17 +1,18 @@
 import { Router } from "express";
 import {
     createFood,
+    getAllFood,
     getFood,
     getFoodById,
-    getAllFood
 } from "../Controllers/FoodController.js";
-const router = Router()
+import { decodeJWT } from "../Middlewares/AuthMiddleware.js";
 
+const router = Router();
 
-router.post("/", createFood);
+router.post("/", decodeJWT, createFood);
 // For Demo Only
-router.get("/all", getAllFood);
-router.get("/:id", getFoodById);
-router.get("/", getFood);
+router.get("/all", decodeJWT, getAllFood);
+router.get("/:id", decodeJWT, getFoodById);
+router.get("/", decodeJWT, getFood);
 
 export default router;
