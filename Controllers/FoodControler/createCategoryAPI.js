@@ -1,5 +1,4 @@
 import { models } from "../../Models/index.js";
-// import Category from "../../Models/Category";
 
 export async function createCategory(req, res) {
     const {name} = req.body;
