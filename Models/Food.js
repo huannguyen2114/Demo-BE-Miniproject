@@ -32,12 +32,12 @@ export default class Food extends Model {
     },
     active: {
       type: DataTypes.BOOLEAN,
-      allowNull: true
+      defaultValue: true,
     },
     createdTime: {
       type: DataTypes.DATE,
       allowNull: true,
-      defaultValue: Sequelize.Sequelize.fn('now')
+      defaultValue: sequelize.fn('now')
     },
     img: {
       type: DataTypes.BLOB,

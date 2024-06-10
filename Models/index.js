@@ -3,7 +3,7 @@ import { Sequelize } from "sequelize";
 import initModels from "./init-models.js";
 
 const sequelize = new Sequelize(
-"postgres://postgres.phxfyusijtzdiylwyzmn:huannguyen2114@aws-0-us-east-1.pooler.supabase.com:6543/postgres"
+    "postgres://postgres.phxfyusijtzdiylwyzmn:huannguyen2114@aws-0-us-east-1.pooler.supabase.com:6543/postgres",
 )
 
 try {
