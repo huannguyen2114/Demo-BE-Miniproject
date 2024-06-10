@@ -1,8 +1,8 @@
-import { createFood } from "./FoodControler/createFoodAPI"
-import { getAllFood } from "./FoodControler/getAllFoodAPI"
-import { getFood } from "./FoodControler/getFoodAPI"
-import { getFoodById } from "./FoodControler/getFoodByIdAPI"
-import { createCategory } from "./FoodControler/createCategoryAPI"
+import { createFood } from "./FoodControler/createFoodAPI.js"
+import { getAllFood } from "./FoodControler/getAllFoodAPI.js"
+import { getFood } from "./FoodControler/getFoodAPI.js"
+import { getFoodById } from "./FoodControler/getFoodByIdAPI.js"
+import { createCategory } from "./FoodControler/createCategoryAPI.js"
 
 export {
     createCategory,
