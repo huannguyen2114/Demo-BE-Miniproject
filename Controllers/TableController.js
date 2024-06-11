@@ -1,4 +1,4 @@
-import getStatus from "./TableController/GetStatusAPI.js";
+import getStatus from "../TableController/GetStatusAPI.js";
 
 export {
     getStatus
