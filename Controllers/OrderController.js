@@ -1,4 +1,4 @@
-import updateOrder from "../OrderController/UpdateOrderAPI.js";
+import updateOrder from "./OrderController/UpdateOrderAPI.js";
 export {
     updateOrder
 };
