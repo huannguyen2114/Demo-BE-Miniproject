@@ -35,7 +35,8 @@ app.use('/api/category', categoryRouter);
 app.use('/api/orders', orderRouter);
 app.use('/api/tables', tableRouter);
 
-app.listen(process.env.PORT, "0.0.0.0", () => {
+const port = process.env.PORT || 3000;
+app.listen(port,  "0.0.0.0", () => {
     console.log('Running at ' );
 });
 
