@@ -4,5 +4,5 @@ export function mapUser(user) {
         userName: user.userName,
         name: user.name,
         isAdmin: user.isAdmin
-    }
+    };
 }

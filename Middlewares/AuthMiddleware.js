@@ -1,26 +1,24 @@
 import { JWTconfig } from "../config/JWTConfig.js";
-import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken';
 
 async function decodeJWT(req, res, next) {
-    const cookies = req.cookies;
     try {
+        const cookies = req.cookies;
         if (!cookies.accessToken) {
-            return next();
-        }
-        jwt.verify(
-            cookies.accessToken,
-            JWTconfig.SECRET,
-            async (err, payload) => {
-                if (err) console.log(err);
+            if (req.body.pwd) {
+                return next();
             }
-        );
+            return res.status(401).json({ "message": "Unauthorized access" });
+        }
+        jwt.verify(cookies.accessToken, JWTconfig.SECRET);
         res.locals.decodes = jwt.decode(cookies.accessToken);
         console.log(res.locals.decodes);
         next();
     } catch (error) {
-        res.status(401).json(error);
+        return res.status(401).json(error);
     }
 }
 
-export { decodeJWT };
-
+export {
+    decodeJWT
+};

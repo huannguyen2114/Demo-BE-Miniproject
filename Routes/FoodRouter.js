@@ -4,15 +4,19 @@ import {
     getAllFood,
     getFood,
     getFoodById,
+    deleteFood
 } from "../Controllers/FoodController.js";
 import { decodeJWT } from "../Middlewares/AuthMiddleware.js";
 
 const router = Router();
 
-router.post("/", decodeJWT, createFood);
+router.use(decodeJWT);
+
+router.post("/", createFood);
 // For Demo Only
-router.get("/all", decodeJWT, getAllFood);
-router.get("/:id", decodeJWT, getFoodById);
-router.get("/", decodeJWT, getFood);
+router.get("/all", getAllFood);
+router.get("/:id", getFoodById);
+router.get("/", getFood);
+router.delete("/:id", deleteFood);
 
 export default router;

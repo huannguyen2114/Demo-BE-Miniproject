@@ -13,12 +13,12 @@ export default async function addNewUser(req, res) {
             userName: body.userName,
             name: body.name,
             pwd: hashCode,
-            isAdmin: false,
+            isAdmin: body.isAdmin ? body.isAdmin : false
         });
         res.status(200).json(mapUser(newUser));
+
     } catch (error) {
         console.error(error);
         res.status(500).json(error);
     }
 }
-
