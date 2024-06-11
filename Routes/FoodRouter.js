@@ -6,7 +6,8 @@ import {
     getFoodById,
     deleteFood,
     getFoodImageById,
-    createCategory
+    createCategory,
+    getAllCategory
 } from '../Controllers/FoodController.js';
 import { decodeJWT } from '../Middlewares/AuthMiddleware.js';
 import fileUpload from 'express-fileupload';
@@ -30,4 +31,5 @@ router.get('/:id', getFoodById);
 router.get('/', getFood);
 router.delete('/:id', deleteFood);
 router.post('/category', createCategory);
+router.get('/category', getAllCategory);
 export default router;

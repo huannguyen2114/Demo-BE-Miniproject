@@ -26,7 +26,7 @@ export async function deleteFood(req, res) {
             'message': 'Food is deleted'
         });
     } catch (error) {
-        console.error(req.method, req.url, e);
+        console.error(req.method, req.url, error);
         res.status(500).json({ 'message': 'Server cannot delete food' });
     }
 }
