@@ -35,9 +35,9 @@ app.use('/api/category', categoryRouter);
 app.use('/api/orders', orderRouter);
 app.use('/api/tables', tableRouter);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8800;
 app.listen(port,  "0.0.0.0", () => {
-    console.log('Running at ' );
+    console.log('Running at %d', port );
 });
 
 export const __dirname = path.dirname(new URL(import.meta.url).pathname);

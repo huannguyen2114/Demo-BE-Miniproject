@@ -14,6 +14,7 @@ import fileUpload from 'express-fileupload';
 
 const router = Router();
 
+router.get('/img/:id', getFoodImageById);
 router.use(decodeJWT);
 
 router.post('/', fileUpload({
@@ -23,13 +24,10 @@ router.post('/', fileUpload({
     abortOnLimit: true,
 })
 ,createFood);
-router.get('/img/:id', getFoodImageById);
 
 // For Demo Only
 router.get('/all', getAllFood);
 router.get('/:id', getFoodById);
 router.get('/', getFood);
 router.delete('/:id', deleteFood);
-router.post('/category', createCategory);
-router.get('/category', getAllCategory);
 export default router;
