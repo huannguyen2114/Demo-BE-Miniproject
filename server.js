@@ -35,8 +35,8 @@ app.use('/api/category', categoryRouter);
 app.use('/api/orders', orderRouter);
 app.use('/api/tables', tableRouter);
 
-app.listen(8800, () => {
-    console.log('Running at %d', 8800);
+app.listen(process.env.PORT, "0.0.0.0", () => {
+    console.log('Running at ' );
 });
 
 export const __dirname = path.dirname(new URL(import.meta.url).pathname);
