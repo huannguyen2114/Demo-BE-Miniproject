@@ -6,6 +6,13 @@ const sequelize = new Sequelize(
     "postgres://postgres.hnfpaekjsbeaqtuywzpj:huannguyen2114@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres"
 );
 
+try {
+  await sequelize.authenticate();
+  console.log('Connection has been established successfully.');
+} catch (error) {
+  console.error('Unable to connect to the database:', error);
+}
+
 const models = initModels(sequelize);
 
 export {
