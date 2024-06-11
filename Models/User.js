@@ -13,7 +13,7 @@ export default class User extends Model {
             userName: {
                 type: DataTypes.STRING(255),
                 allowNull: true,
-                unique: "User_userName_key"
+                unique: 'User_userName_key'
             },
             name: {
                 type: DataTypes.STRING(255),
@@ -33,17 +33,17 @@ export default class User extends Model {
             timestamps: false,
             indexes: [
                 {
-                    name: "User_pkey",
+                    name: 'User_pkey',
                     unique: true,
                     fields: [
-                        { name: "userId" },
+                        { name: 'userId' },
                     ]
                 },
                 {
-                    name: "User_userName_key",
+                    name: 'User_userName_key',
                     unique: true,
                     fields: [
-                        { name: "userName" },
+                        { name: 'userName' },
                     ]
                 },
             ]

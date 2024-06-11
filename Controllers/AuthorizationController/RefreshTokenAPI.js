@@ -6,7 +6,7 @@ export default async function refreshToken(req, res) {
         const cookies = req.cookies;
         if (!cookies.refreshToken) {
             return res.status(404).json({
-                message: "Not found refresh token in cookies !"
+                message: 'Not found refresh token in cookies !'
             });
         }
         const decodes = jwt.verify(cookies.refreshToken, JWTconfig.SECRET_REFRESH);
@@ -21,12 +21,13 @@ export default async function refreshToken(req, res) {
             }
         );
 
-        res.cookie("accessToken", newToken, { httpOnly: true, maxAge: JWTconfig.tokenLife });
+        res.cookie('accessToken', newToken, { httpOnly: true, maxAge: JWTconfig.tokenLife });
         res.status(200).json({
-            message: "successfull"
+            message: 'successfull'
         });
 
     } catch (error) {
+        console.error(req.method, req.url, error);
         res.status(401).json(error);
     }
 }

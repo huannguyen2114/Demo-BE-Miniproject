@@ -61,10 +61,10 @@ export default class Order extends Model {
             timestamps: false,
             indexes: [
                 {
-                    name: "Order_pkey",
+                    name: 'Order_pkey',
                     unique: true,
                     fields: [
-                        { name: "orderId" },
+                        { name: 'orderId' },
                     ]
                 },
             ]

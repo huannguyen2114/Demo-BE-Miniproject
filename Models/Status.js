@@ -19,10 +19,10 @@ export default class Status extends Model {
             timestamps: false,
             indexes: [
                 {
-                    name: "Status_pkey",
+                    name: 'Status_pkey',
                     unique: true,
                     fields: [
-                        { name: "statusCode" },
+                        { name: 'statusCode' },
                     ]
                 },
             ]

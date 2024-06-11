@@ -20,10 +20,10 @@ export default class Table extends Model {
             timestamps: false,
             indexes: [
                 {
-                    name: "Table_pkey",
+                    name: 'Table_pkey',
                     unique: true,
                     fields: [
-                        { name: "tableId" },
+                        { name: 'tableId' },
                     ]
                 },
             ]

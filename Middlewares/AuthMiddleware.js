@@ -1,4 +1,4 @@
-import { JWTconfig } from "../config/JWTConfig.js";
+import { JWTconfig } from '../config/JWTConfig.js';
 import jwt from 'jsonwebtoken';
 
 async function decodeJWT(req, res, next) {
@@ -8,13 +8,13 @@ async function decodeJWT(req, res, next) {
             if (req.body.pwd) {
                 return next();
             }
-            return res.status(401).json({ "message": "Unauthorized access" });
+            return res.status(401).json({ 'message': 'Unauthorized access' });
         }
         jwt.verify(cookies.accessToken, JWTconfig.SECRET);
         res.locals.decodes = jwt.decode(cookies.accessToken);
-        console.log(res.locals.decodes);
         next();
     } catch (error) {
+        console.error(req.method, req.url, error);
         return res.status(401).json(error);
     }
 }

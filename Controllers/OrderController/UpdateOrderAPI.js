@@ -1,5 +1,4 @@
-import { models } from "../../Models/index.js";
-
+import { models } from '../../Models/index.js';
 
 export default async function updateOrder(req, res) {
     try {
@@ -13,8 +12,8 @@ export default async function updateOrder(req, res) {
                 }
             });
             if (user.isAdmin ^ (body.statusCode == 1)) {
-                return res.status(405).json({
-                    message: "Access denied"
+                return res.status(405).sjon({
+                    message: 'Access denied'
                 });
             }
             const order = models.Order.findOne({
@@ -29,7 +28,7 @@ export default async function updateOrder(req, res) {
             }
             if (body.statusCode - order.statusCode != 1) {
                 res.status(400).json({
-                    message: "Invalid status code"
+                    message: 'Invalid status code'
                 });
             }
             const valueUpdate = body.statusCode == 1 ?
@@ -47,18 +46,19 @@ export default async function updateOrder(req, res) {
             await models.Order.update(valueUpdate, { where: { orderId: params.id } });
 
             res.status(201).json({
-                message: "Successfull",
+                message: 'Successful',
                 tableId: order.tableId
             });
 
         }
         else {
             res.status(401).json({
-                message: "No authorization"
+                message: 'No authorization'
             });
         }
 
     } catch (error) {
+        console.error(req.method, req.url, error);
         res.status(500).json(error);
     }
 }

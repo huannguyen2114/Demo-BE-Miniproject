@@ -1,9 +1,6 @@
-import bcrypt from "bcrypt";
-import User from "../../Models/User.js";
-import jwt from "jsonwebtoken";
-import { mapUser } from "../../DTO/UserDTO.js";
-import { models } from "../../Models/index.js";
-import { DataTypes, Sequelize } from "sequelize";
+import bcrypt from 'bcrypt';
+import { mapUser } from '../../DTO/UserDTO.js';
+import { models } from '../../Models/index.js';
 
 export default async function addNewUser(req, res) {
     try {
@@ -18,7 +15,7 @@ export default async function addNewUser(req, res) {
         res.status(200).json(mapUser(newUser));
 
     } catch (error) {
-        console.error(error);
+        console.error(req.method, req.url, error);
         res.status(500).json(error);
     }
 }

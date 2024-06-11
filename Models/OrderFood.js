@@ -36,11 +36,11 @@ export default class OrderFood extends Model {
             timestamps: false,
             indexes: [
                 {
-                    name: "OrderFood_pkey",
+                    name: 'OrderFood_pkey',
                     unique: true,
                     fields: [
-                        { name: "orderId" },
-                        { name: "foodId" },
+                        { name: 'orderId' },
+                        { name: 'foodId' },
                     ]
                 },
             ]

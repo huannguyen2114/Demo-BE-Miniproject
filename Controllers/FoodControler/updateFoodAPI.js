@@ -25,6 +25,7 @@ export default async function updateFood(req, res) {
         }
 
     } catch (error) {
+        console.error(req.method, req.url, error);
         res.status(500).json(error);
     }
 }

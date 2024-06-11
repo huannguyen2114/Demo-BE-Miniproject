@@ -1,9 +1,10 @@
-import { Router } from "express";
-import { decodeJWT } from "../Middlewares/AuthMiddleware.js";
-import { updateOrder } from "../Controllers/OrderController.js";
+import { Router } from 'express';
+import { decodeJWT } from '../Middlewares/AuthMiddleware.js';
+import { updateOrder, createOrder } from '../Controllers/OrderController.js';
 
 const router = Router();
 
-router.put('/orders/:id', decodeJWT, updateOrder);
+router.post('/', decodeJWT, createOrder);
+router.put('/:id', decodeJWT, updateOrder);
 
 export default router;

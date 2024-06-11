@@ -1,6 +1,6 @@
-import { Router } from "express";
-import { decodeJWT } from "../Middlewares/AuthMiddleware.js";
-import { getStatus } from "../Controllers/TableController.js";
+import { Router } from 'express';
+import { decodeJWT } from '../Middlewares/AuthMiddleware.js';
+import { getStatus } from '../Controllers/TableController.js';
 
 const router = Router();
 
