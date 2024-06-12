@@ -9,7 +9,7 @@ const router = Router();
 
 
 // For Demo Only
-router.use(decodeJWT);
+// router.use(decodeJWT);
 router.post('/', createCategory);
 router.get('/', getAllCategory);
 export default router;

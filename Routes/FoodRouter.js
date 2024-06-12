@@ -15,7 +15,7 @@ import fileUpload from 'express-fileupload';
 const router = Router();
 
 router.get('/img/:id', getFoodImageById);
-router.use(decodeJWT);
+// router.use(decodeJWT);
 
 router.post('/', fileUpload({
     limits: {
