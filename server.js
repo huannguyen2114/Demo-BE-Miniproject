@@ -4,16 +4,15 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import 'dotenv/config';
 import path from 'path';
+import cookieParser from 'cookie-parser';
+
 
 //==================== import router==========================
 import authorizationRouter from './Routes/AuthorizationRouter.js';
 import foodRouter from './Routes/FoodRouter.js';
 import orderRouter from './Routes/OrderRouter.js';
 import tableRouter from './Routes/TableRouter.js';
-import categoryRouter from './Routes/CategoryRouter.js'
-import cookieParser from 'cookie-parser';
-import { access } from 'fs';
-
+import cateRtouer from './Routes/CategoryRouter.js';
 
 //===================config app===============================
 const app = express();
@@ -31,13 +30,13 @@ app.use(cors());
 
 app.use('/api/authorization', authorizationRouter);
 app.use('/api/food', foodRouter);
-app.use('/api/category', categoryRouter);
 app.use('/api/orders', orderRouter);
 app.use('/api/tables', tableRouter);
+app.use('/api/categories', cateRtouer);
 
-const port = process.env.PORT || 8800;
-app.listen(port,  "0.0.0.0", () => {
-    console.log('Running at %d', port );
+app.listen(process.env.PORT, () => {
+    console.log('Running at %d', process.env.PORT);
 });
 
-export const __dirname = path.dirname(new URL(import.meta.url).pathname);
+// export const __dirname = path.dirname(new URL(import.meta.url).pathname);
+global.__dirname = path.dirname(new URL(import.meta.url).pathname);

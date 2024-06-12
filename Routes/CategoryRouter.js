@@ -1,15 +1,14 @@
 import { Router } from 'express';
-import {
-    createCategory,
-    getAllCategory
-} from '../Controllers/FoodController.js';
+import { createCategory, getAllCategory } from '../Controllers/CategoryController.js';
 import { decodeJWT } from '../Middlewares/AuthMiddleware.js';
+
 
 const router = Router();
 
+router.use(decodeJWT);
 
-// For Demo Only
-// router.use(decodeJWT);
-router.post('/', createCategory);
 router.get('/', getAllCategory);
+router.post('/', createCategory);
+
+
 export default router;

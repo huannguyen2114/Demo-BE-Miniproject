@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS "Food" (
     "price" REAL,
     "active" BOOL,
     "createdTime" TIMESTAMP WITH TIME ZONE DEFAULT NOW (),
-    "img" bytea
+    "imgURL" TEXT
 );
 CREATE TABLE IF NOT EXISTS "Order" (
     "orderId" SERIAL PRIMARY KEY,

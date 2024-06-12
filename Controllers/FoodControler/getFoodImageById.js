@@ -1,6 +1,5 @@
 import { models } from '../../Models/index.js';
 import fs from 'fs';
-import { __dirname } from '../../server.js';
 
 export async function getFoodImageById(req, res) {
     const id = req.params.id;

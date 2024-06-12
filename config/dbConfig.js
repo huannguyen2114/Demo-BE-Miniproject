@@ -5,6 +5,7 @@ const dbConfig = {
     USER: process.env.USER_NAME,
     PASSWORD: process.env.PASSWORD,
     DB: process.env.DBNAME,
+    PORT: process.env.DB_PORT,
     dialect: 'postgres',
     pool: {
         max: 5,

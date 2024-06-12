@@ -21,9 +21,11 @@ export async function deleteFood(req, res) {
         });
         if (!food) return res.status(204).json({ 'message': 'Food is not in database' });
 
-        await food.destroy();
+        await food.update({
+            active: false
+        });
         return res.status(200).json({
-            'message': 'Food is deleted'
+            'message': 'Food is deleted (disabled)'
         });
     } catch (error) {
         console.error(req.method, req.url, error);
