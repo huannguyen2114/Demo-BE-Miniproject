@@ -6,19 +6,17 @@ import { __dirname } from '../../server.js';
 export async function createFood(req, res) {
 
     // Authorize the user (Only admin can createFood)
-    let user = res.locals.decodes;
-        user = await models.User.findOne({
-            where: {
-                userName: user.userName
-            }
-        });
-    if (!user || !user.isAdmin) return res.status(403).json({ 'message': 'Unauthorized operation' });
-    
+    // let user = res.locals.decodes;
+    //     user = await models.User.findOne({
+    //         where: {
+    //             userName: user.userName
+    //         }
+    //     });
+    // if (!user || !user.isAdmin) return res.status(403).json({ 'message': 'Unauthorized operation' });
 
     const { categoryId, name, quantity, price } = req.body;
     const { image } = req.files;
 
-    console.log(image);
 
     try {
         if (!image) return res.status(400).json({'message': 'You need to upload image'});
@@ -41,4 +39,3 @@ export async function createFood(req, res) {
         console.error(req.method, req.url, err);
         return res.status(500).json({ 'message': 'Server cannot create food' });
     }
-}
