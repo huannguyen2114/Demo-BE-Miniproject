@@ -35,8 +35,8 @@ export default async function login(req, res) {
 
         const accessToken = generateAccessToken({ userName: extractedUser.userName });
         const refreshToken = generateRefreshToken({ userName: extractedUser.userName });
-        res.cookie('accessToken', accessToken, { httpOnly: true, maxAge: JWTconfig.tokenLife });
-        res.cookie('refreshToken', refreshToken, { httpOnly: true, maxAge: JWTconfig.refreshTokenLife });
+        res.cookie('accessToken', accessToken, { httpOnly: false, maxAge: JWTconfig.tokenLife });
+        res.cookie('refreshToken', refreshToken, { httpOnly: false, maxAge: JWTconfig.refreshTokenLife });
 
         return res.status(200).json(mapUser(extractedUser));
     } catch (error) {
