@@ -39,3 +39,4 @@ export async function createFood(req, res) {
         console.error(req.method, req.url, err);
         return res.status(500).json({ 'message': 'Server cannot create food' });
     }
+}
