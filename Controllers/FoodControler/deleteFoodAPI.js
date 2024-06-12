@@ -3,13 +3,13 @@ import { checkInteger } from '../../Services/checkInteger.js';
 
 export async function deleteFood(req, res) {
     try {
-        let user = res.locals.decodes;
-        user = await models.User.findOne({
-            where: {
-                userName: user.userName
-            }
-        });
-        if (!user || !user.isAdmin) return res.status(403).json({ 'message': 'Unauthorized operation' });
+        // let user = res.locals.decodes;
+        // user = await models.User.findOne({
+        //     where: {
+        //         userName: user.userName
+        //     }
+        // });
+        // if (!user || !user.isAdmin) return res.status(403).json({ 'message': 'Unauthorized operation' });
         const { id } = req.params;
         if (!id) return res.status(400).json({ 'message': 'Missing foodId field' });
         if (!checkInteger(id)) return res.status(400).json({ 'message': 'foodId must be an integer' });

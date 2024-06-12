@@ -5,13 +5,13 @@ import { models } from '../../Models/index.js';
 export async function createFood(req, res) {
 
     // Authorize the user (Only admin can createFood)
-    let user = res.locals.decodes;
-    user = await models.User.findOne({
-        where: {
-            userName: user.userName
-        }
-    });
-    if (!user || !user.isAdmin) return res.status(403).json({ 'message': 'Unauthorized operation' });
+    // let user = res.locals.decodes;
+    // user = await models.User.findOne({
+    //     where: {
+    //         userName: user.userName
+    //     }
+    // });
+    // if (!user || !user.isAdmin) return res.status(403).json({ 'message': 'Unauthorized operation' });
 
 
     const { categoryId, name, quantity, price } = req.body;

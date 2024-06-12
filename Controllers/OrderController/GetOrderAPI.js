@@ -2,13 +2,13 @@ import { models, sequelize } from '../../Models/index.js';
 import { checkInteger } from '../../Services/checkInteger.js';
 export default async function getOrder(req, res) {
     try {
-        let user = res.locals.decodes;
-        user = await models.User.findOne({
-            where: {
-                userName: user.userName
-            }
-        });
-        if (!user) return res.status(403).json({ 'message': 'Unauthorized operation' });
+        // let user = res.locals.decodes;
+        // user = await models.User.findOne({
+        //     where: {
+        //         userName: user.userName
+        //     }
+        // });
+        // if (!user) return res.status(403).json({ 'message': 'Unauthorized operation' });
 
         const { tableId } = req.query;
         if (!tableId) return res.status(400).json({ 'message': 'Missing tableId' });

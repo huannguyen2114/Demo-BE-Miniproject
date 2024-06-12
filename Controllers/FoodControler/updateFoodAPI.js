@@ -5,10 +5,10 @@ async function updateFood(req, res) {
         const body = req.body;
         const files = req.files;
         const params = req.params;
-        const payload = res.locals.decodes;
-        const user = await models.User.findOne({ where: { userName: payload.userName } });
+        // const payload = res.locals.decodes;
+        // const user = await models.User.findOne({ where: { userName: payload.userName } });
 
-        if (user.isAdmin) {
+        if (true) {
             const food = await models.Food.findOne({ where: { foodId: params.id } });
             if (!food) {
                 return res.status(404).json({
