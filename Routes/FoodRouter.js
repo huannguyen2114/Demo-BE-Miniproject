@@ -15,7 +15,7 @@ const router = Router();
 
 router.get('/img/:id', getFoodImageById);
 
-// router.use(decodeJWT);
+router.use(decodeJWT);
 
 // TODO: POST REQUEST
 router.post('/', fileUpload({ limits: { fileSize: 10000000, }, abortOnLimit: true, }), createFood);

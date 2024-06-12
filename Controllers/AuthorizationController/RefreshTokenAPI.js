@@ -23,7 +23,7 @@ export default async function refreshToken(req, res) {
 
         res.cookie('accessToken', newToken, { httpOnly: true, maxAge: JWTconfig.tokenLife });
         res.status(200).json({
-            message: 'successfull'
+            'accessToken': newToken
         });
 
     } catch (error) {

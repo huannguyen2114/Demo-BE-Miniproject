@@ -4,7 +4,7 @@ import { updateOrder, createOrder, getOrder } from '../Controllers/OrderControll
 
 const router = Router();
 
-// router.use(decodeJWT);
+router.use(decodeJWT);
 router.post('/',  createOrder);
 router.put('/:id',  updateOrder);
 router.get('/',  getOrder);

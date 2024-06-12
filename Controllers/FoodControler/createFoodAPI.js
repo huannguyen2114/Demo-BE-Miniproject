@@ -17,8 +17,6 @@ export async function createFood(req, res) {
     const { categoryId, name, quantity, price } = req.body;
     const { image } = req.files;
 
-    console.log(image);
-
     try {
         if (!image) return res.status(400).json({ 'message': 'You need to upload image' });
         // If doesn't have image mime type prevent from uploading
