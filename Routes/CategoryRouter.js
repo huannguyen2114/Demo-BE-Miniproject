@@ -5,7 +5,7 @@ import { decodeJWT } from '../Middlewares/AuthMiddleware.js';
 
 const router = Router();
 
-router.use(decodeJWT);
+// router.use(decodeJWT);
 
 router.get('/', getAllCategory);
 router.post('/', createCategory);
