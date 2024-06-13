@@ -6,13 +6,13 @@
     "type": "module",
     "imports": {
         "#root/*.js": "./*.js",
-        "#routes/*.js": "./routes/*.js",
-        "#controllers/*.js": "./controllers/*.js",
-        "#middlewares/*.js": "./middlewares/*.js",
+        "#routes/*.js": "./Routes/*.js",
+        "#controllers/*.js": "./Controllers/*.js",
+        "#middlewares/*.js": "./Middlewares/*.js",
         "#config/*.js": "./config/*.js",
-        "#models/*.js": "./models/*.js",
-        "#services/*.js": "./services/*.js",
-        "#utils/*.js": "./utils/*.js"
+        "#models/*.js": "./Models/*.js",
+        "#services/*.js": "./Services/*.js",
+        "#utils/*.js": "./Utils/*.js"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
