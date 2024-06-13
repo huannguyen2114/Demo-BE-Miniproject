@@ -4,6 +4,16 @@
     "description": "",
     "main": "server.js",
     "type": "module",
+    "imports": {
+        "#root/*.js": "./*.js",
+        "#routes/*.js": "./routes/*.js",
+        "#controllers/*.js": "./controllers/*.js",
+        "#middlewares/*.js": "./middlewares/*.js",
+        "#config/*.js": "./config/*.js",
+        "#models/*.js": "./models/*.js",
+        "#services/*.js": "./services/*.js",
+        "#utils/*.js": "./utils/*.js"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "nodemon server.js"

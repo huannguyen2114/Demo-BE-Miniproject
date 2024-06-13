@@ -6,19 +6,18 @@ import 'dotenv/config';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 
-
 //==================== import router==========================
-import authorizationRouter from './Routes/AuthorizationRouter.js';
-import foodRouter from './Routes/FoodRouter.js';
-import orderRouter from './Routes/OrderRouter.js';
-import tableRouter from './Routes/TableRouter.js';
-import cateRtouer from './Routes/CategoryRouter.js';
+import authorizationRouter from '#routes/authorization_router.js';
+import foodRouter from '#routes/food_router.js';
+import orderRouter from '#routes/order_router.js';
+import tableRouter from '#routes/table_router.js';
+import cateRouter from '#routes/category_router.js';
 
 //===================config app===============================
 const app = express();
 
 app.get('/', async function (req, res) {
-    res.status(200).send('Welcomme');
+    res.status(200).send('Welcome');
 });
 
 app.use(bodyParser.json({ limit: '200mb' }));
@@ -32,9 +31,9 @@ app.use('/api/authorization', authorizationRouter);
 app.use('/api/food', foodRouter);
 app.use('/api/orders', orderRouter);
 app.use('/api/tables', tableRouter);
-app.use('/api/categories', cateRtouer);
+app.use('/api/categories', cateRouter);
 
-app.listen(process.env.PORT, "0.0.0.0", () => {
+app.listen(process.env.PORT,"0.0.0.0", () => {
     console.log('Running at %d', process.env.PORT);
 });
 

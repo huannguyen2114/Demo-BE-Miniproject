@@ -28,7 +28,6 @@ $$ LANGUAGE sql;
 -- thêm order
 -- từ order id sẽ theem trong orderFood
 -- mỗi item trong orderlist sẽ lấy food id để check và lấy số lượng
-
 CREATE OR REPLACE FUNCTION createOrder(
     tableId INTEGER,
     orderedBy INTEGER,
@@ -64,6 +63,9 @@ BEGIN
     INSERT INTO "Order"("tableId", "orderedBy", "statusCode")
     VALUES (tableId, orderedBy, 0)
     RETURNING "orderId" INTO _orderId;
+    UPDATE "Table" AS T
+    SET status = FALSE
+    WHERE T."tableId" = tableId;
     OPEN _cur FOR SELECT * FROM orderedList;
     LOOP
         FETCH NEXT FROM _cur INTO _foodId,_quantity,_remain,_price;
@@ -80,6 +82,7 @@ BEGIN
         INSERT INTO "OrderFood"
         VALUES (_orderId, _foodId, _quantity, _price);
     END LOOP;
+
     CLOSE _cur;
     RETURN _orderId;
 END;
@@ -125,3 +128,30 @@ FROM (SELECT of."foodId",
       WHERE OF."orderId" = orderId) AS tab
          INNER JOIN "Food" AS food ON tab."foodId" = food."foodId"
 $$ LANGUAGE SQL;
+
+CREATE OR REPLACE FUNCTION getOrderPagination(
+    lm INTEGER,
+    os INTEGER,
+    sc INTEGER
+)
+    RETURNS TABLE
+            (
+                orderId    INTEGER,
+                tableId    INTEGER,
+                orderTime  TIMESTAMP,
+                finishTime TIMESTAMP,
+                payTime    TIMESTAMP,
+                orderedBy  INTEGER,
+                finishedBy INTEGER,
+                statusCode INTEGER
+            )
+AS
+$$
+SELECT *
+FROM "Order" AS o
+WHERE o."statusCode" = sc
+ORDER BY o."orderId"
+OFFSET os ROWS FETCH NEXT lm ROWS ONLY;
+$$ LANGUAGE sql;
+
+SELECT COUNT(*) as count FROM "Order" WHERE "statusCode" = 0

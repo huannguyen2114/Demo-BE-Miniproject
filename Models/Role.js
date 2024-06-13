@@ -1,29 +1,28 @@
 import _sequelize from 'sequelize';
 const { Model, Sequelize } = _sequelize;
 
-export default class Table extends Model {
+export default class Role extends Model {
   static init(sequelize, DataTypes) {
-  return sequelize.define('Table', {
-    tableId: {
-      autoIncrement: true,
+  return sequelize.define('Role', {
+    roleCode: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    status: {
-      type: DataTypes.BOOLEAN,
+    desc: {
+      type: DataTypes.TEXT,
       allowNull: true
     }
   }, {
-    tableName: 'Table',
+    tableName: 'Role',
     schema: 'public',
     timestamps: false,
     indexes: [
       {
-        name: "Table_pkey",
+        name: "Role_pkey",
         unique: true,
         fields: [
-          { name: "tableId" },
+          { name: "roleCode" },
         ]
       },
     ]

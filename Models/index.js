@@ -1,4 +1,4 @@
-import dbConfig from '../config/dbConfig.js';
+import dbConfig from '#config/db_config.js';
 import { Sequelize } from 'sequelize';
 import initModels from './init-models.js';
 

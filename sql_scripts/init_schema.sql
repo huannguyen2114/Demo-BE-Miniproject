@@ -3,7 +3,13 @@ CREATE TABLE IF NOT EXISTS "User" (
     "userName" VARCHAR (255) UNIQUE,
     "name" VARCHAR (255),
     "pwd" VARCHAR (255),
-    "isAdmin" BOOL
+    "roleCode" INTEGER,
+    "active" BOOLEAN DEFAULT TRUE,
+    "createdTime" TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+CREATE TABLE if NOT EXISTS "Role"(
+    "roleCode" INTEGER PRIMARY KEY,
+    "desc" TEXT
 );
 CREATE TABLE IF NOT EXISTS "Food" (
     "foodId" SERIAL PRIMARY KEY,
@@ -22,7 +28,7 @@ CREATE TABLE IF NOT EXISTS "Order" (
     "finishTime" TIMESTAMP WITH TIME ZONE DEFAULT NULL,
     "payTime" TIMESTAMP WITH TIME ZONE DEFAULT NULL,
     "orderedBy" INTEGER NOT NULL,
-    "updateFinishedBy" INTEGER DEFAULT NULL,
+    "finishedBy" INTEGER DEFAULT NULL,
     "statusCode" SMALLINT
 );
 CREATE TABLE IF NOT EXISTS "Status" (
@@ -55,9 +61,11 @@ ADD FOREIGN KEY ("tableId") REFERENCES "Table" ("tableId");
 ALTER TABLE "Order"
 ADD FOREIGN KEY ("orderedBy") REFERENCES "User" ("userId");
 ALTER TABLE "Order"
-ADD FOREIGN KEY ("updateFinishedBy") REFERENCES "User" ("userId");
+ADD FOREIGN KEY ("finishedBy") REFERENCES "User" ("userId");
 ALTER TABLE "Order"
 ADD FOREIGN KEY ("statusCode") REFERENCES "Status" ("statusCode");
+ALTER TABLE "User"
+ADD FOREIGN KEY ("roleCode") REFERENCES "Role" ("roleCode");
 ALTER SEQUENCE public."Table_tableId_seq" RESTART WITH 1;
 ALTER SEQUENCE public."User_userId_seq" RESTART WITH 1000000;
 ALTER SEQUENCE public."Category_categoryId_seq" RESTART WITH 2000000;
